@@ -110,11 +110,11 @@ export class Server<
    * The new capabilities will be merged with any existing capabilities previously given (e.g., at initialization).
    */
   public registerCapabilities(capabilities: ServerCapabilities): void {
-    if (this.transport) {
-      throw new Error(
-        "Cannot register capabilities after connecting to transport",
-      );
-    }
+    // if (this.transport) {
+    //   throw new Error(
+    //     "Cannot register capabilities after connecting to transport",
+    //   );
+    // }
 
     this._capabilities = mergeCapabilities(this._capabilities, capabilities);
   }
