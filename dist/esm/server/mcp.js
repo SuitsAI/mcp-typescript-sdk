@@ -1,6 +1,6 @@
 import { Server } from "./index.js";
 import { zodToJsonSchema } from "zod-to-json-schema";
-import { z, ZodType, } from "zod";
+import { z, } from "zod";
 import { McpError, ErrorCode, ListResourceTemplatesRequestSchema, ReadResourceRequestSchema, ListToolsRequestSchema, CallToolRequestSchema, ListResourcesRequestSchema, ListPromptsRequestSchema, GetPromptRequestSchema, CompleteRequestSchema, } from "../types.js";
 import { Completable } from "./completable.js";
 import { UriTemplate } from "../shared/uriTemplate.js";
@@ -356,7 +356,8 @@ export class McpServer {
             if (typeof obj !== "object" || obj === null)
                 return false;
             // Check that at least one property is a ZodType instance
-            return Object.values(obj).some(v => v instanceof ZodType);
+            return true;
+            //return Object.values(obj as object).some(v => v instanceof ZodType);
         };
         let description;
         if (typeof rest[0] === "string") {

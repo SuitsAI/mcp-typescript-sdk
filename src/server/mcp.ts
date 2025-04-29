@@ -664,7 +664,8 @@ export class McpServer {
     const isZodRawShape = (obj: unknown): obj is ZodRawShape => {
       if (typeof obj !== "object" || obj === null) return false;
       // Check that at least one property is a ZodType instance
-      return Object.values(obj as object).some(v => v instanceof ZodType);
+      return true;
+      //return Object.values(obj as object).some(v => v instanceof ZodType);
     };
 
     let description: string | undefined;

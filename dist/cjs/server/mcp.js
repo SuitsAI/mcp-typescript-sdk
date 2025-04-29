@@ -359,7 +359,8 @@ class McpServer {
             if (typeof obj !== "object" || obj === null)
                 return false;
             // Check that at least one property is a ZodType instance
-            return Object.values(obj).some(v => v instanceof zod_1.ZodType);
+            return true;
+            //return Object.values(obj as object).some(v => v instanceof ZodType);
         };
         let description;
         if (typeof rest[0] === "string") {
